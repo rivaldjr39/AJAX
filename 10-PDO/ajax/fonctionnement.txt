@@ -1,0 +1,3 @@
+Utilisateur → (action JS) → AJAX → Serveur PHP → Base de données
+     ↑                                                ↓
+     ← ← ← ← ← ← ← ← ← ← Réponse JSON ← ← ← ← ← ← ← ←

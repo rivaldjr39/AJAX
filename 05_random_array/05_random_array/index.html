@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .paire {
+        color: blue;
+    }
+
+    .impaire {
+        color: red;
+    }
+    .zero{
+        color: chartreuse;
+    }
+</style>
+
+<body>
+
+    <button id="number">Generer</button>
+    <p id="reponse"></p>
+
+</body>
+<script>
+    var reponse = document.getElementById("reponse");
+
+    var nombre = document.getElementById("number");
+    nombre.addEventListener("click", () => {
+        var chiffre = Math.floor(Math.random() * 100);
+        console.log(chiffre);
+        reponse.innerHTML = chiffre;
+
+        reponse.classList.remove('paire', 'impaire','zero');
+        if (chiffre % 2 == 0) {
+            reponse.classList.add('paire');
+        } else if (chiffre == 0) {
+            reponse.classList.add('zero')
+
+        }else {
+            reponse.classList.add('impaire');
+
+        }
+    });
+
+
+</script>
+
+</html>

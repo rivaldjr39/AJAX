@@ -1,0 +1,68 @@
+<html>
+<head>
+<script type="text/javascript">
+
+function submitForm()
+{ 
+    var xhr = new XMLHttpRequest(); 
+    var form = document.getElementsByClassName("from")[0];
+    var image = document.getElementById("image");
+    form.style.display = "none";
+    image.style.display = "block";
+
+    var tmp = document.getElementById("choix").value;
+    var url ="json.php?id=" + tmp;
+
+    xhr.onreadystatechange  = function() 
+    {
+       if(xhr.readyState  == 4)
+       {
+           if(xhr.status  == 200) 
+           {
+            var form = document.getElementsByClassName("from")[0];
+            var image = document.getElementById("image");
+            image.style.display = "none";
+            form.style.display = "block";
+            var retour = JSON.parse(xhr.responseText);
+            var resultat = document.getElementById("dyn");
+            var resultat1 = document.getElementById("dyn1");
+            var resultat2 = document.getElementById("dyn2");
+            var tmp = document.getElementById("choix").value;
+            console.log(tmp);
+            if(retour && retour.Nom)
+                {
+                    resultat.value = retour.Nom;
+                    resultat1.value = retour.Prenom;
+                    resultat2.value = retour.AnneeNaissance;
+                }else {
+                    resultat.value = "non trouve";
+                }
+	
+        } else {
+            document.dyn="Error code " + xhr.status;
+        }
+		}
+    }; 
+  //XMLHttpRequest.open(method, url, async)
+   xhr.open("GET", url,  true); 
+
+   
+   
+   //XMLHttpRequest.send(body)
+   xhr.send(null); 
+}
+
+</script>
+</head>
+  
+<body>
+    <img src="../08-src/assets/Loading_icon.gif" alt="gif" id="image" style="display: none;">
+    <div class="from">
+        <p>Entrer un nombre<input type="text" id="choix" value=""></p>
+        <INPUT type="BUTTON" value="Submit"  onclick="submitForm()" />
+        <INPUT type="text" name="dyn" id="dyn" value="" />
+        <INPUT type="text" name="dyn1" id="dyn1" value="" />
+        <INPUT type="text" name="dyn2" id="dyn2" value="" />
+    </div>
+</body>
+</html>

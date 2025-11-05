@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .paire {
+        color: blue;
+    }
+
+    .impaire {
+        color: red;
+    }
+    .zero{
+        color: chartreuse;
+    }
+</style>
+
+<body>
+    
+    <button id="bt">Generer</button>
+    <input type="number" id="nb_total">
+    <h5>Nombres entre</h5>
+    <input type="number" id="nb_depart">
+    <h5> et </h5>
+    <input type="number" id="nb_fin"></p>
+    <div id="reponse">
+        
+    </div>
+
+
+    
+</body>
+    <script>
+        var number1 = document.getElementById("nb_total").value;
+        var number2 = document.getElementById("nb_depart").value;
+        var number3 = document.getElementById("nb_fin").value;
+
+        var button = document.getElementById ("bt");
+        button.addEventListener('click',() => {
+           for( i=0; i< nb_total; i++ ){
+            var nb_aleatoire = Math.floor(Math.random() * (nb_fin - nb_depart + 1));
+            var div = document.getElementById("reponse");
+            var p = document.createElement("p");
+
+            div.appendChild(p);
+           }
+
+        } );
+
+
+
+    </script>
+
+ 
+
+</html>
